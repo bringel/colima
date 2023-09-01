@@ -70,7 +70,7 @@ func newConf(ctx context.Context, conf config.Config) (l Config, err error) {
 	l.Containerd = Containerd{System: false, User: false}
 
 	l.DNS = conf.Network.DNSResolvers
-	l.HostResolver.Enabled = len(conf.Network.DNSResolvers) == 0
+	l.HostResolver.Enabled = false // len(conf.Network.DNSResolvers) == 0
 	l.HostResolver.Hosts = conf.Network.DNSHosts
 	if l.HostResolver.Hosts == nil {
 		l.HostResolver.Hosts = make(map[string]string)
